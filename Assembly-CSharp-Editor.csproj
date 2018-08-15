@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B5D9FE79-E097-719E-B10D-144120950244}</ProjectGuid>
+    <ProjectGuid>{8AD75B92-CD47-55E4-CA09-F1045EFAE828}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -246,35 +246,35 @@
  <HintPath>C:/Program Files/Unity 5.6.1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Google.IOSResolver">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ArduinoTest/Assets/PlayServicesResolver/Editor/Google.IOSResolver.dll</HintPath>
- </Reference>
- <Reference Include="Poly2Tri">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ArduinoTest/Assets/Plugins/Poly2Tri.dll</HintPath>
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ZowiApp/Assets/PlayServicesResolver/Editor/Google.IOSResolver.dll</HintPath>
  </Reference>
  <Reference Include="Google.JarResolver">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ArduinoTest/Assets/PlayServicesResolver/Editor/Google.JarResolver.dll</HintPath>
- </Reference>
- <Reference Include="UniRateWP">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ArduinoTest/Assets/Plugins/UniRateWP.dll</HintPath>
- </Reference>
- <Reference Include="Lzma#">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ArduinoTest/Assets/Plugins/Editor/Lzma#.dll</HintPath>
- </Reference>
- <Reference Include="clipper_library">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ArduinoTest/Assets/Plugins/clipper_library.dll</HintPath>
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ZowiApp/Assets/PlayServicesResolver/Editor/Google.JarResolver.dll</HintPath>
  </Reference>
  <Reference Include="Google.VersionHandler">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ArduinoTest/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ZowiApp/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+ </Reference>
+ <Reference Include="clipper_library">
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ZowiApp/Assets/Plugins/clipper_library.dll</HintPath>
  </Reference>
  <Reference Include="ICSharpCode.SharpZipLib">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ArduinoTest/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ZowiApp/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+ </Reference>
+ <Reference Include="Poly2Tri">
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ZowiApp/Assets/Plugins/Poly2Tri.dll</HintPath>
+ </Reference>
+ <Reference Include="UniRateWP">
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ZowiApp/Assets/Plugins/UniRateWP.dll</HintPath>
+ </Reference>
+ <Reference Include="Lzma#">
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/ZowiApp/Assets/Plugins/Editor/Lzma#.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{DF290448-0BE8-64F7-5CFF-843088DE37F6}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{C18D06CE-713B-CA3C-8F0C-9B69AA3AA017}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{1D4F5CBA-4C67-A807-3747-DAE77A41FA53}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{5C5C7AF8-CBF8-D882-C2B7-F98796AC6A7A}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

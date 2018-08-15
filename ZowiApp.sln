@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZowiApp", "Assembly-CSharp-firstpass.csproj", "{C18D06CE-713B-CA3C-8F0C-9B69AA3AA017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZowiApp", "Assembly-CSharp.csproj", "{5C5C7AF8-CBF8-D882-C2B7-F98796AC6A7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZowiApp", "Assembly-CSharp-Editor.csproj", "{8AD75B92-CD47-55E4-CA09-F1045EFAE828}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C18D06CE-713B-CA3C-8F0C-9B69AA3AA017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18D06CE-713B-CA3C-8F0C-9B69AA3AA017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18D06CE-713B-CA3C-8F0C-9B69AA3AA017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18D06CE-713B-CA3C-8F0C-9B69AA3AA017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5C7AF8-CBF8-D882-C2B7-F98796AC6A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5C7AF8-CBF8-D882-C2B7-F98796AC6A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5C7AF8-CBF8-D882-C2B7-F98796AC6A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5C7AF8-CBF8-D882-C2B7-F98796AC6A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AD75B92-CD47-55E4-CA09-F1045EFAE828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD75B92-CD47-55E4-CA09-F1045EFAE828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD75B92-CD47-55E4-CA09-F1045EFAE828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD75B92-CD47-55E4-CA09-F1045EFAE828}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

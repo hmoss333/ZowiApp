@@ -9,8 +9,9 @@ public class BasicDemo : MonoBehaviour {
 
 	private  BluetoothDevice device;
 	public Text statusText;
+    public Slider speedSlider;
 
-    public int time = 1500; //slow = 1500; normal = 1000; fast = 500
+    private int time = 1500; //slow = 1500; normal = 1000; fast = 500
 
     //private AndroidJavaClass zowiClass = new AndroidJavaClass("com.unity3d.player.ZowiLib_");
 
@@ -51,22 +52,24 @@ public class BasicDemo : MonoBehaviour {
 
 
         //device.Name = "Zowi"; //"HC-06";
-		//device.MacAddress = "XX:XX:XX:XX:XX:XX";
+        //device.MacAddress = "XX:XX:XX:XX:XX:XX";
 
-		/*
+        /*
 		 *  Note: The library will fill the properties device.Name and device.MacAdress with the right data after succesfully connecting.
 		 * 
 		 *  Moreover, any BluetoothDevice instance returned by a method or event of this library will have both properties (Name & MacAdress) filled with the right data
 		 */
 
 
-		//You might need th following:
-		//this.device.UUID = UUID; //This is not required for HC-05/06 devices and many other electronic bluetooth modules.
-		/*
+        //You might need th following:
+        //this.device.UUID = UUID; //This is not required for HC-05/06 devices and many other electronic bluetooth modules.
+        /*
 		 * Quoting docs: A uuid is a Universally Unique Identifier (UUID) standardized 128-bit format for a string ID used to uniquely identify information. 
 		 * It's used to uniquely identify your application's Bluetooth service.
 		 * Check out getUUIDs(), if you don't know what UUID to use.
 		 */
+
+        speed();
 	}
 	
 	public void connect() {
@@ -90,6 +93,27 @@ public class BasicDemo : MonoBehaviour {
 	public void disconnect() {
 		device.close();
 	}
+
+
+    //Speed Controller
+    public void speed()
+    {
+        switch ((int)speedSlider.value)
+        {
+            case 0:
+                time = 1500;
+                break;
+            case 1:
+                time = 1000;
+                break;
+            case 2:
+                time = 500;
+                break;
+            default:
+                time = 1500;
+                break;
+        }
+    }
 
 
     //Default position; call to end the current animation
