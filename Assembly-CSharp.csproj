@@ -216,6 +216,7 @@
      <Compile Include="Assets\OutlineEffect\LinkedSet.cs" />
      <Compile Include="Assets\OutlineEffect\Outline.cs" />
      <Compile Include="Assets\OutlineEffect\OutlineEffect.cs" />
+     <Compile Include="Assets\Scripts\Otto.cs" />
      <Compile Include="Assets\Scripts\SerialConnectionTest.cs" />
      <Compile Include="Assets\ZowiProtocol.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />

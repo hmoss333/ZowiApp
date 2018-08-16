@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 
@@ -10,6 +11,12 @@ public class BasicDemo : MonoBehaviour {
 	private  BluetoothDevice device;
 	public Text statusText;
     public Slider speedSlider;
+    public GameObject ControlUI;
+    public GameObject BackgroundUI;
+    public GameObject DanceUI;
+
+    List<string> danceMoves;
+    public Text danceMovesText;
 
     private int time = 1500; //slow = 1500; normal = 1000; fast = 500
 
@@ -71,8 +78,18 @@ public class BasicDemo : MonoBehaviour {
 
         speed();
 	}
-	
-	public void connect() {
+
+    private void Start()
+    {
+        ControlUI.SetActive(true);
+        BackgroundUI.SetActive(true);
+        DanceUI.SetActive(false);
+
+        danceMoves = new List<string>();
+        danceMovesText.text = "";
+    }
+
+    public void connect() {
 		statusText.text = "Status : Searching...";
 
         device.Name = "Zowi"; //"HC-06";
@@ -131,7 +148,7 @@ public class BasicDemo : MonoBehaviour {
     }
 
 
-    //Base Contols
+    //############### Movement Commands #################//
     public void walk(int dir)//float steps, int time, int dir)
     {
         char direction; // = ZowiProtocol.MOVE_STOP_OPTION; ;
@@ -181,9 +198,7 @@ public class BasicDemo : MonoBehaviour {
 
     }
 
-
-    //Animations
-    public void updown()// float steps, int time, int h) 
+    void updown()// float steps, int time, int h) 
     {
         String command = String.Format(
                 "" + ZowiProtocol.MOVE_COMMAND +
@@ -199,7 +214,7 @@ public class BasicDemo : MonoBehaviour {
 
     }
 
-    public void moonwalker(int dir)//float steps, int time, int h, int dir) 
+    void moonwalker(int dir)//float steps, int time, int h, int dir) 
     {
         char direction; // = ZowiProtocol.MOVE_STOP_OPTION;
 
@@ -226,7 +241,7 @@ public class BasicDemo : MonoBehaviour {
 
     }
 
-    public void swing()//float steps, int time, int h) 
+    void swing()//float steps, int time, int h) 
     {
         String command = String.Format(
                 "" + ZowiProtocol.MOVE_COMMAND +
@@ -242,7 +257,7 @@ public class BasicDemo : MonoBehaviour {
 
     }
 
-    public void crusaito(int dir)//float steps, int time, int h, int dir) 
+    void crusaito(int dir)//float steps, int time, int h, int dir) 
     {
         String direction; //.MOVE_CRUSAITO_RIGHT_OPTION;
 
@@ -269,7 +284,7 @@ public class BasicDemo : MonoBehaviour {
 
     }
 
-    public void jump()//float steps, int time) 
+    void jump()//float steps, int time) 
     {
         String command = String.Format(
                 "" + ZowiProtocol.MOVE_COMMAND +
@@ -284,11 +299,47 @@ public class BasicDemo : MonoBehaviour {
 
 
 
-//############### Reading Data  #####################
-/* Please note that this way of reading is only used in this demo. All other demos use Coroutines(Unity offers many tutorials on Coroutines).
- * Just to make things simple
- */
-void Update() {
+    //############### Gesture Commands #################//
+
+    public void testCommand()
+    {
+        //String command = String.Format(
+        //        "" + ZowiProtocol.GESTURE_COMMAND +
+        //                ZowiProtocol.SEPARATOR +
+        //                ZowiProtocol.GESTURE_HAPPY +
+        //                ZowiProtocol.SEPARATOR +
+        //                ZowiProtocol.FINAL);
+
+        //device.send(System.Text.Encoding.UTF8.GetBytes(command));
+        testSound();
+        jump();
+        swing();
+        testSound();
+    }
+
+
+
+    //############### Gesture Commands #################//
+
+    public void testSound()
+    {
+        String command = String.Format(
+                "" + ZowiProtocol.SING_COMMAND +
+                        ZowiProtocol.SEPARATOR +
+                        ZowiProtocol.SING_OhOoh_2 +
+                        ZowiProtocol.SEPARATOR +
+                        ZowiProtocol.FINAL);
+
+        device.send(System.Text.Encoding.UTF8.GetBytes(command));
+    }
+
+
+
+    //############### Reading Data  #####################
+    /* Please note that this way of reading is only used in this demo. All other demos use Coroutines(Unity offers many tutorials on Coroutines).
+     * Just to make things simple
+     */
+    void Update() {
 		if (device.IsReading) {
 
 			byte [] msg = device.read();
@@ -307,5 +358,61 @@ void Update() {
 
 			//} 
 		}
+
 	}
+
+    public void CreateNewDance()
+    {
+        ControlUI.SetActive(false);
+        BackgroundUI.SetActive(false);
+        DanceUI.SetActive(true);
+    }
+
+    public void DanceBack()
+    {
+        ControlUI.SetActive(true);
+        BackgroundUI.SetActive(true);
+        DanceUI.SetActive(false);
+    }
+
+    public void StartDance()
+    {
+        for (int i = 0; i < danceMoves.Count; i++)
+        {
+            Debug.Log(danceMoves[i]);
+
+            if (danceMoves[i].Contains("jump"))
+                jump();
+
+            if (danceMoves[i].Contains("moonwalk"))
+                moonwalker(1); //just testing for now
+
+            if (danceMoves[i].Contains("swing"))
+                swing();
+        }
+
+        testSound();
+        home();
+
+        danceMoves.Clear();
+        danceMovesText.text = "";
+    }
+
+    public void AddJump()
+    {
+        danceMoves.Add("jump");
+        danceMovesText.text = danceMovesText.text + "Jump...";
+    }
+
+    public void AddMoonWalk()
+    {
+        danceMoves.Add("moonwalk");
+        danceMovesText.text = danceMovesText.text + "Moonwalk...";
+    }
+
+    public void AddShake()
+    {
+        danceMoves.Add("swing");
+        danceMovesText.text = danceMovesText.text + "Swing...";
+    }
 }
