@@ -326,7 +326,7 @@ public class BasicDemo : MonoBehaviour {
         String command = String.Format(
                 "" + ZowiProtocol.SING_COMMAND +
                         ZowiProtocol.SEPARATOR +
-                        ZowiProtocol.SING_OhOoh_2 +
+                        ZowiProtocol.SING_HAPPY + 
                         ZowiProtocol.SEPARATOR +
                         ZowiProtocol.FINAL);
 
@@ -377,20 +377,49 @@ public class BasicDemo : MonoBehaviour {
 
     public void StartDance()
     {
+        StartCoroutine(Dance());
+    }
+    IEnumerator Dance()
+    {
         for (int i = 0; i < danceMoves.Count; i++)
         {
             Debug.Log(danceMoves[i]);
+            Debug.Log(i);
+            
+            //Walk
+            if (danceMoves[i].Contains("forward"))
+                walk(1);
+            if (danceMoves[i].Contains("backward"))
+                walk(-1);
 
+            //Turn
+            if (danceMoves[i].Contains("left"))
+                turn(1);
+            if (danceMoves[i].Contains("right"))
+                turn(-1);
+
+            //Jump
             if (danceMoves[i].Contains("jump"))
-                jump();
+                updown(); //jump();
 
-            if (danceMoves[i].Contains("moonwalk"))
+            //Moonwalk
+            if (danceMoves[i].Contains("moonwalkL"))
                 moonwalker(1); //just testing for now
+            if (danceMoves[i].Contains("moonwalkR"))
+                moonwalker(-1);
 
+            //Swing
             if (danceMoves[i].Contains("swing"))
                 swing();
+
+            home();
+            yield return new WaitForSeconds(1.25f);
         }
 
+        ClearDance();
+    }
+    void ClearDance()
+    {
         testSound();
         home();
 
@@ -403,16 +432,43 @@ public class BasicDemo : MonoBehaviour {
         danceMoves.Add("jump");
         danceMovesText.text = danceMovesText.text + "Jump...";
     }
-
-    public void AddMoonWalk()
+    public void AddMoonWalk(int dir)
     {
-        danceMoves.Add("moonwalk");
+        if (dir == -1)
+            danceMoves.Add("moonwalkR");
+        else
+            danceMoves.Add("moonwalkL");
         danceMovesText.text = danceMovesText.text + "Moonwalk...";
     }
-
     public void AddShake()
     {
         danceMoves.Add("swing");
         danceMovesText.text = danceMovesText.text + "Swing...";
+    }
+    public void AddMove(int dir)
+    {
+        if (dir == -1)
+        {
+            danceMoves.Add("backward");
+            danceMovesText.text = danceMovesText.text + "Backward...";
+        }
+        else
+        {
+            danceMoves.Add("forward");
+            danceMovesText.text = danceMovesText.text + "Forward...";
+        }
+    }
+    public void AddTurn(int dir)
+    {
+        if (dir == -1)
+        {
+            danceMoves.Add("right");
+            danceMovesText.text = danceMovesText.text + "Turn Right...";
+        }
+        else
+        {
+            danceMoves.Add("left");
+            danceMovesText.text = danceMovesText.text + "Turn Left...";
+        }
     }
 }
